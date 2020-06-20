@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <div class="box"></div>
+    <script>
+        var myImage=(function(){
+            var img1=new Image();
+            var img2=new Image();
+            img2.onload=function(){
+                img1.src=img2.src
+            }
+
+            return  {
+               setscr:function(dom,src){
+                    img1.src='loading.gif';
+                    img2.src=src;
+                    dom.appendChild(img1)
+               }
+
+            }
+        })();
+        var show =document.querySelector('.box');
+        myImage.setscr(show,'http://pic39.photophoto.cn/20160411/1155116845138548_b.jpg');
+
+    </script>
+</body>
+</html>
